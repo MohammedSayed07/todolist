@@ -10,8 +10,8 @@
         <header>
             <h1>TO DO LIST</h1>
         </header>
-        <form>
-            <input type="text" placeholder="Enter Task">
+        <form action="/" method="POST">
+            <input id="title" name="title" type="text" placeholder="Enter Task">
             <button>
                 <span>Add</span> <img class="add-image" src=   "../images/add-button.svg" alt="">
             </button>

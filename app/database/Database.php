@@ -31,6 +31,12 @@ class Database
         return $query->fetchAll();
     }
 
+    public static function store(string $table, string $columns, string $values, array $data =[]): void
+    {
+        $query = "INSERT INTO {$table}({$columns}) values($values)";
+        self::execute($query, $data);
+    }
+
     public static function execute($query, $params = []): false|\PDOStatement
     {
         $stmt = self::$connection->prepare($query);
