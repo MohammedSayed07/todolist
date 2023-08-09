@@ -8,7 +8,7 @@ function renderView(string $view, array $data = []): void
     require_once MAIN_DIR.'/views/index.view.php';
 }
 
-#[NoReturn] function dd($value): void
+function dd($value): void
 {
     echo'<pre>';
     var_dump($value);

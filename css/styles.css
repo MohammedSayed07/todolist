@@ -27,7 +27,7 @@ form {
 }
 
 form input,
-form button {
+.add-button {
     margin-top: 20px;
     height: 40px;
     border: none;
@@ -36,7 +36,7 @@ form button {
     transition: all 0.3s;
 }
 
-form button:hover {
+.add-button:hover {
     background: #94de94;
 }
 
@@ -44,7 +44,7 @@ form input {
     padding-left: 10px;
 }
 
-form button {
+.add-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +77,7 @@ div ul li {
     align-items: center;
 }
 
-div ul li button {
+div ul li form button {
     border: none;
     margin-left: 5px;
     cursor: pointer;

@@ -31,10 +31,28 @@ class Database
         return $query->fetchAll();
     }
 
-    public static function store(string $table, string $columns, string $values, array $data =[]): void
+    public static function create(string $table, array $data = []): void
     {
+        $keys = array_keys($data);
+
+        $temp = [];
+        foreach($keys as $key)
+        {
+            $temp[] = ':'.$key;
+        }
+
+        $columns = implode(',', $keys);
+        $values = implode(',', $temp);
+
         $query = "INSERT INTO {$table}({$columns}) values($values)";
         self::execute($query, $data);
+    }
+
+    public static function delete(string $table, array $params = [], string $column = 'id'): void
+    {
+        $value = ':'.$column;
+        $query = "DELETE FROM {$table} WHERE {$column} = {$value}";
+        self::execute($query, $params);
     }
 
     public static function execute($query, $params = []): false|\PDOStatement

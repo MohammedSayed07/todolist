@@ -6,16 +6,20 @@ use app\database\Database;
 
 class Task
 {
-
+    private static string $tableName = 'tasks';
 
     public static function get(): false|array
     {
-        $tasks = Database::get('tasks');
-        return $tasks;
+        return Database::get(self::$tableName);
     }
 
-    public static function store(array $data = []): void
+    public static function create(array $data = []): void
     {
-        Database::store('tasks', 'title, is_done', ':title, :is_done', $data);
+        Database::create(self::$tableName, $data);
+    }
+
+    public static function delete(array $id = []): void
+    {
+        Database::delete(self::$tableName, $id);
     }
 }
