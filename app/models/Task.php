@@ -22,4 +22,9 @@ class Task
     {
         Database::delete(self::$tableName, $id);
     }
+
+    public static function edit(array $id): void
+    {
+        Database::update(self::$tableName, $id);
+    }
 }

@@ -48,10 +48,26 @@ class Database
         self::execute($query, $data);
     }
 
-    public static function delete(string $table, array $params = [], string $column = 'id'): void
+    public static function delete(string $table, array $params, string $column = 'id'): void
     {
         $value = ':'.$column;
         $query = "DELETE FROM {$table} WHERE {$column} = {$value}";
+        self::execute($query, $params);
+    }
+
+    public static function update(string $table, array $params, string $column = 'id'): void
+    {
+        $value = ':'.$column;
+
+        $keys = array_keys($params);
+        array_shift($keys);
+        $temp = [];
+        foreach($keys as $key)
+        {
+            $temp[] = $key.'='.':'.$key;
+        }
+        $alteredData = implode(',', $temp);
+        $query = "UPDATE {$table} SET {$alteredData} WHERE {$column} = {$value}";
         self::execute($query, $params);
     }
 

@@ -96,3 +96,7 @@ div ul li form button {
 .task-item {
     display: inline-block;
 }
+
+.done {
+    text-decoration: line-through;
+}

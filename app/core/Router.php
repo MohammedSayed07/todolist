@@ -10,14 +10,16 @@ class Router {
     {
         $this->request = $request;
     }
-    public function get(string $path, array $callback): void
+    public function get(string $path, array $callback)
     {
         $this->routes['get'][$path] = $callback;
+        return $this;
     }
 
-    public function post(string $path, array $callback): void
+    public function post(string $path, array $callback)
     {
         $this->routes['post'][$path] = $callback;
+        return $this;
     }
 
     public function resolve(): void

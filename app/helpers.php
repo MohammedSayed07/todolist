@@ -17,6 +17,10 @@ function dd($value): void
     exit;
 }
 
+function isDone($value)
+{
+    return $value == 1;
+}
 function redirect($view): void
 {
     header('location: '.$view);
